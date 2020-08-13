@@ -1,0 +1,24 @@
+#make the 3D PCoA in python
+import plotly.express as px
+import pandas as pd
+#import the PCA generated coordinates for the first three components
+PCoA=pd.read_csv("/Users/Landon/Desktop/U_Chicago/PYY_Ling/Graph_PCA_python/PCA_Coordinates.csv", header=0)
+#view it
+#print(PCoA)
+ PC1 - 75.8%  PC2 - 9.6%  PC3 - 4.5%            Name
+0       62.7017    8.425840   -27.25090   Yeast-Control
+1       62.7695    5.449330   -19.53970   Yeast-Control
+2       63.5316    0.904941    -9.48188   Yeast-Control
+3       71.6498  -23.783100    41.69660       Yeast-PYY
+4       77.7652    3.369650     1.56152       Yeast-PYY
+5       72.4133   -0.103420     7.53280       Yeast-PYY
+6      -71.7481  -29.190900    -2.22621  Hyphae-Control
+7      -73.1037  -35.069000    -3.90966  Hyphae-Control
+8      -74.5748  -31.715800   -11.40440  Hyphae-Control
+9      -70.2741   35.454800     2.14180      Hyphae-PYY
+10     -63.3818   32.624700    10.04630      Hyphae-PYY
+11     -57.7487   33.632900    10.83380      Hyphae-PYY
+#make the PCoA
+fig=px.scatter_3d(PCoA,x='PC1 - 75.8%', y= 'PC2 - 9.6%', z='PC3 - 4.5%', color='Name')
+fig.show()
+#
